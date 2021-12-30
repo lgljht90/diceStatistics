@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		#res{
+			background-color: firebrick;
+			color: white;
+		}
+		th{
+			background-color: green;
+			color: white;
+		}
+	</style>
+</head>
+<script >
+	var f1=0;
+	var f2=0;
+	var f3=0;
+	var f4=0;
+	var f5=0;
+	var f6=0;
+	var t=0;
+	window.addEventListener("load",init);
+	function init(){
+		document.getElementById("button").addEventListener("click",roll);
+		update();
+	}
+	function roll(){
+		document.getElementById("die1").setAttribute("src","die"+ran()+".png");
+		document.getElementById("die2").setAttribute("src","die"+ran()+".png");
+		document.getElementById("die3").setAttribute("src","die"+ran()+".png");
+		document.getElementById("die4").setAttribute("src","die"+ran()+".png");
+		document.getElementById("die5").setAttribute("src","die"+ran()+".png");
+		document.getElementById("die6").setAttribute("src","die"+ran()+".png");
+		document.getElementById("die7").setAttribute("src","die"+ran()+".png");
+		document.getElementById("die8").setAttribute("src","die"+ran()+".png");
+		document.getElementById("die9").setAttribute("src","die"+ran()+".png");
+		document.getElementById("die10").setAttribute("src","die"+ran()+".png");
+		document.getElementById("die11").setAttribute("src","die"+ran()+".png");
+		document.getElementById("die12").setAttribute("src","die"+ran()+".png");
+		t+=12;
+		update();
+	}
+	function ran(){
+		var num=Math.floor(1+Math.random()*6);
+		switch(num){
+			case 1:
+				f1++;
+				break
+			case 2:
+				f2++;
+				break
+			case 3:
+				f3++;
+				break
+			case 4:
+				f4++;
+				break
+			case 5:
+				f5++;
+				break
+			case 6:
+				f6++;
+				break
+		}
+		return num;
+	}
+	function update(){
+		document.getElementById("res").innerHTML=
+		"<tr><td>1</td><td>"+f1+"</td><td>"+Math.floor(f1/t*100)+"%"+"</td></tr>"+
+		"<tr><td>2</td><td>"+f2+"</td><td>"+Math.floor(f2/t*100)+"%"+"</td></tr>"+
+		"<tr><td>3</td><td>"+f3+"</td><td>"+Math.floor(f3/t*100)+"%"+"</td></tr>"+
+		"<tr><td>4</td><td>"+f4+"</td><td>"+Math.floor(f4/t*100)+"%"+"</td></tr>"+
+		"<tr><td>5</td><td>"+f5+"</td><td>"+Math.floor(f5/t*100)+"%"+"</td></tr>"+
+		"<tr><td>6</td><td>"+f6+"</td><td>"+Math.floor(f6/t*100)+"%"+"</td></tr>";
+	}
+</script>
+<body>
+<img id="die1" src="die1.png">
+<img id="die2" src="die1.png">
+<img id="die3" src="die1.png">
+<img id="die4" src="die1.png">
+<img id="die5" src="die1.png">
+<img id="die6" src="die1.png"><br>
+<img id="die7" src="die1.png">
+<img id="die8" src="die1.png">
+<img id="die9" src="die1.png">
+<img id="die10" src="die1.png">
+<img id="die11" src="die1.png">
+<img id="die12" src="die1.png"><br>
+<input id="button" type="button" value="roll">
+<table>
+	<caption>Frequency</caption>
+	<thead><th>number</th><th>frequency</th><th>percent</th></thead>
+	<tbody id="res"></tbody>
+</table>
+</body>
+</html>
